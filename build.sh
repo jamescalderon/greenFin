@@ -22,8 +22,8 @@ rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
 
 # from COPRs:
-rpm-ostree install firefoxpwa
-rpm-ostree install webapp-manager
+# rpm-ostree install firefoxpwa
+# rpm-ostree install webapp-manager
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
