@@ -1,4 +1,4 @@
-# ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
+ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 
 ## 1. BUILD ARGS
 # These allow changing the produced image by passing different build args to adjust
