@@ -4,8 +4,7 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-printenv | sort
-
+echo "RELEASE = $RELEASE"
 
 ### Install packages
 
