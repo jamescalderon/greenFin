@@ -16,11 +16,17 @@ RELEASE="$(rpm -E %fedora)"
 rpm-ostree install screen
 rpm-ostree install stow
 rpm-ostree install firefox
+rpm-ostree install chromium
 rpm-ostree install thunderbird
+rpm-ostree install nautilus-open-any-terminal
+
+# from COPRs:
+rpm-ostree install firefoxpwa
+rpm-ostree install webapp-manager
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+# systemctl enable podman.socket
