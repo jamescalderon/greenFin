@@ -6,6 +6,9 @@ RELEASE="$(rpm -E %fedora)"
 
 echo "RELEASE = $RELEASE"
 
+### COPRs
+curl -o /etc/yum.repos.d/refi64-webapp-manager-fedora.repo "https://copr.fedorainfracloud.org/coprs/refi64/webapp-manager/repo/fedora-${RELEASE}/refi64-webapp-manager-fedora-${RELEASE}.repo"
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
