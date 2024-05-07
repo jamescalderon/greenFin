@@ -6,7 +6,7 @@ RELEASE="$(rpm -E %fedora)"
 
 echo "RELEASE = $RELEASE"
 
-echo "USER = $USER"
+# echo "USER = $USER"
 
 ### COPRs
 # - webapp (from Mint)
