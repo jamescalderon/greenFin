@@ -4,6 +4,23 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
+echo "RELEASE = $RELEASE"
+
+# echo "USER = $USER"
+
+### COPRs
+# - webapp (from Mint)
+curl -o /etc/yum.repos.d/refi64-webapp-manager-fedora.repo "https://copr.fedorainfracloud.org/coprs/refi64/webapp-manager/repo/fedora-${RELEASE}/refi64-webapp-manager-fedora-${RELEASE}.repo"
+
+# - Firefox PWA
+rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
+
+echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo
+
+# - DisplayLink Driver Installation
+# DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"        
+# curl -o displaylink.rpm "${DISPLAYLINK_RPM_URL}"
+
 
 ### Install packages
 
@@ -21,9 +38,13 @@ rpm-ostree install thunderbird
 rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
 
+
 # from COPRs:
-# rpm-ostree install firefoxpwa
-# rpm-ostree install webapp-manager
+rpm-ostree install firefoxpwa
+rpm-ostree install webapp-manager
+
+# rpm-ostree install displaylink.rpm
+# rm displaylink.rpm
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
