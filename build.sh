@@ -36,7 +36,7 @@ rpm-ostree install jetbrains-mono-fonts
 
 
 # from COPRs:
-# rpm-ostree install firefoxpwa
+rpm-ostree install firefoxpwa
 rpm-ostree install webapp-manager
 
 # this would install a package from rpmfusion
