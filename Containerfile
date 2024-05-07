@@ -1,3 +1,5 @@
+# ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
+
 ## 1. BUILD ARGS
 # These allow changing the produced image by passing different build args to adjust
 # the source from which your image is built.
@@ -47,6 +49,19 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ### 3. MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
+
+# CUSTOM REPOS
+
+# # Copr repo for webapp-manager owned by refi64 (COPR has x86_64 architecture) 
+RUN wget https://copr.fedorainfracloud.org/coprs/refi64/webapp-manager/repo/fedora-"${FEDORA_MAJOR_VERSION}"/refi64-webapp-manager-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/        yum.repos.d/refi64-webapp-manager-fedora.repo && \
+    ostree container commit
+
+# firefoxPWA: https://packagecloud.io/filips/FirefoxPWA
+# (allows for the installation of webapps as native apps in the system, like a webapp-manager but for Firefox PWA's) 
+RUN sudo rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey && \
+echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo && \
+ostree container commit
+
 
 COPY build.sh /tmp/build.sh
 
