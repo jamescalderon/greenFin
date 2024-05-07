@@ -19,7 +19,7 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 
 # - DisplayLink Driver Installation
 DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"        
-curl -o /tmp/displaylink.rpm "${DISPLAYLINK_RPM_URL}"
+curl -o displaylink.rpm "${DISPLAYLINK_RPM_URL}"
 
 
 ### Install packages
@@ -43,8 +43,8 @@ rpm-ostree install jetbrains-mono-fonts
 rpm-ostree install firefoxpwa
 rpm-ostree install webapp-manager
 
-rpm-ostree install /tmp/displaylink.rpm
-rm /tmp/displaylink.rpm
+rpm-ostree install displaylink.rpm
+rm displaylink.rpm
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
