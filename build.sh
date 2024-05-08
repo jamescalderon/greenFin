@@ -37,11 +37,23 @@ rpm-ostree install chromium
 rpm-ostree install thunderbird
 rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
-
+rpm-ostree install python3-pip
 
 # from COPRs:
 rpm-ostree install firefoxpwa
 rpm-ostree install webapp-manager
+
+# install flatpaks
+# xargs flatpak install -y < /tmp/flatpaks.txt
+
+# install gnome extensions
+# pip install --upgrade gnome-extensions-cli
+
+# EXTENSIONS_FILE="/tmp/extensions.txt"
+
+# while IFS= read -r extension; do
+#   gext install "$extension"
+# done < "$EXTENSIONS_FILE"
 
 # rpm-ostree install displaylink.rpm
 # rm displaylink.rpm
