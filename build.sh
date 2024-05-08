@@ -43,16 +43,17 @@ rpm-ostree install python3-pip
 rpm-ostree install firefoxpwa
 rpm-ostree install webapp-manager
 
-# flatpaks
-xargs flatpak install -y < tmp/flatpaks.txt
+# install flatpaks
+xargs flatpak install -y < /tmp/flatpaks.txt
 
-# extensions
-  # gnome extensions
-  pip install --upgrade gnome-extensions-cli
-  EXTENSIONS_FILE="tmp/extensions.txt"
-  while IFS= read -r extension; do
-    gext install "$extension"
-  done < "$EXTENSIONS_FILE"
+# install gnome extensions
+pip install --upgrade gnome-extensions-cli
+
+EXTENSIONS_FILE="/tmp/extensions.txt"
+
+while IFS= read -r extension; do
+  gext install "$extension"
+done < "$EXTENSIONS_FILE"
 
 # rpm-ostree install displaylink.rpm
 # rm displaylink.rpm
