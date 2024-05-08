@@ -47,13 +47,13 @@ rpm-ostree install webapp-manager
 # xargs flatpak install -y < /tmp/flatpaks.txt
 
 # install gnome extensions
-pip install --upgrade gnome-extensions-cli
+# pip install --upgrade gnome-extensions-cli
 
-EXTENSIONS_FILE="/tmp/extensions.txt"
+# EXTENSIONS_FILE="/tmp/extensions.txt"
 
-while IFS= read -r extension; do
-  gext install "$extension"
-done < "$EXTENSIONS_FILE"
+# while IFS= read -r extension; do
+#   gext install "$extension"
+# done < "$EXTENSIONS_FILE"
 
 # rpm-ostree install displaylink.rpm
 # rm displaylink.rpm
