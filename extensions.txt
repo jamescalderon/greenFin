@@ -1,0 +1,16 @@
+awesome-tiles@velitasali.com
+bluetooth-battery@michalw.github.com
+clipboard-history@alexsaveau.dev
+dash-to-panel@jderose9.github.com
+extensions.txt
+gnome-wireguard-extension@SJBERTRAND.github.com
+guillotine@fopdoodle.net
+IP-Finder@linxgem33.com
+lockkeys@vaina.lt
+notification-banner-reloaded@marcinjakubowski.github.com
+quick-settings-tweaks@qwreey
+quicksettings-audio-devices-renamer@marcinjahn.com
+solaar-extension@sidevesh
+steal-my-focus-window@steal-my-focus-window
+tactile@lundal.io
+user-theme@gnome-shell-extensions.gcampax.github.com
