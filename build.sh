@@ -44,7 +44,7 @@ rpm-ostree install firefoxpwa
 rpm-ostree install webapp-manager
 
 # install flatpaks
-xargs flatpak install -y < /tmp/flatpaks.txt
+# xargs flatpak install -y < /tmp/flatpaks.txt
 
 # install gnome extensions
 pip install --upgrade gnome-extensions-cli
