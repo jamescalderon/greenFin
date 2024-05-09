@@ -38,6 +38,7 @@ rpm-ostree install thunderbird
 rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
 rpm-ostree install python3-pip
+rpm-ostree install iproute
 
 # from COPRs:
 rpm-ostree install firefoxpwa
