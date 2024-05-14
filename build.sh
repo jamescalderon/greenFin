@@ -38,7 +38,7 @@ rpm-ostree install thunderbird
 rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
 rpm-ostree install python3-pip
-rpm-ostree install NetworkManager-openconnect
+rpm-ostree install gparted
 
 # from COPRs:
 rpm-ostree install firefoxpwa
