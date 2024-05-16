@@ -39,6 +39,7 @@ rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
 rpm-ostree install python3-pip
 rpm-ostree install gparted
+rpm-ostree install grub-customizer
 
 # from COPRs:
 rpm-ostree install firefoxpwa
