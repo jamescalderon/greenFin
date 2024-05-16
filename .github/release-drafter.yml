@@ -9,6 +9,13 @@ categories:
     labels: ['maintenance']
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 version-resolver:
-  major: '/\bBREAKING CHANGE\b/i'
-  minor: '/\bfeat\b/i'
-  patch: '/\bfix\b/i'
+  major:
+    regex: '\bBREAKING CHANGE\b'
+  minor:
+    regex: '\bfeat\b'
+  patch:
+    regex: '\bfix\b'
+template: |
+  ## What's Changed
+
+  $CHANGES
