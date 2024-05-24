@@ -48,7 +48,7 @@ rpm-ostree install gnome-terminal-nautilus
 
 # FlightGear
 rpm-ostree install FlightGear
-# rpm-ostree install FlightGear-Atlas
+rpm-ostree install FlightGear-Atlas
 # rpm-ostree install FlightGear-data 
 
 # from COPRs:
