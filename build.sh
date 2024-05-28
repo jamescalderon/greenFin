@@ -46,11 +46,6 @@ rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
 
-# FlightGear
-rpm-ostree install FlightGear
-# rpm-ostree install FlightGear-Atlas
-# rpm-ostree install FlightGear-data 
-
 # from COPRs:
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
