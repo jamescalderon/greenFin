@@ -52,9 +52,9 @@ rpm-ostree install meson
 rpm-ostree install vulkan-headers
 rpm-ostree install vulkan-validation-layers-devel
 
-meson builddir --prefix=/usr
-meson compile -C builddir
-sudo meson install -C builddir
+# meson builddir --prefix=/usr
+# meson compile -C builddir
+# sudo meson install -C builddir
 
 # rpm-ostree install 
 # rpm-ostree install 
