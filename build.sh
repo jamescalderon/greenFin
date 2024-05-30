@@ -45,7 +45,19 @@ rpm-ostree install python3-pip
 rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
+
+# vulkan-specific
 rpm-ostree install vulkan-tools
+rpm-ostree install meson
+rpm-ostree install vulkan-headers
+rpm-ostree install vulkan-validation-layers-devel
+
+meson builddir --prefix=/usr
+meson compile -C builddir
+sudo meson install -C builddir
+
+# rpm-ostree install 
+# rpm-ostree install 
 
 # from COPRs:
 rpm-ostree install webapp-manager
