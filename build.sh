@@ -45,6 +45,7 @@ rpm-ostree install python3-pip
 rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
+rpm-ostree install vulkan-tools
 
 # from COPRs:
 rpm-ostree install webapp-manager
