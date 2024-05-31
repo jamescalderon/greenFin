@@ -51,12 +51,14 @@ rpm-ostree install vulkan-tools
 rpm-ostree install meson
 rpm-ostree install vulkan-headers
 rpm-ostree install vulkan-validation-layers-devel
+rpm-ostree install openal-soft
+rpm-ostree install mesa-libGL
+rpm-ostree install mesa-libGLU
 
 # meson builddir --prefix=/usr
 # meson compile -C builddir
 # sudo meson install -C builddir
 
-# rpm-ostree install 
 # rpm-ostree install 
 
 # from COPRs:
