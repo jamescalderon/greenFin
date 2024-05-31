@@ -2,13 +2,13 @@
 
 set -ouex pipefail
 
-RELEASE="$(rpm -E %fedora)"
+ARCH=$(uname -m)
+echo "ARCHITECTURE = $ARCH"
 
+RELEASE="$(rpm -E %fedora)"
 echo "RELEASE = $RELEASE"
 
-# echo "USER = $USER"
-
-### COPRs
+### Direct Repo Installs
 # - webapp (from Mint)
 curl -o /etc/yum.repos.d/refi64-webapp-manager-fedora.repo "https://copr.fedorainfracloud.org/coprs/refi64/webapp-manager/repo/fedora-${RELEASE}/refi64-webapp-manager-fedora-${RELEASE}.repo"
 
@@ -19,6 +19,14 @@ curl -o /etc/yum.repos.d/vscode.repo "https://packages.microsoft.com/yumrepos/vs
 rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo
+
+# Chrome native install
+echo "[google-chrome]
+name=google-chrome - \$ARCH
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
 
 
 # - DisplayLink Driver Installation
@@ -60,25 +68,23 @@ rpm-ostree install mesa-libGLU
 # sudo meson install -C builddir
 
 # rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
 
-# from COPRs:
+
+# from Direct Repo Installs:
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
-
-# Chrome native install
-# Part of an attempt to add Google Chrome in the usual way.
-echo "Fixing google-chrome yum repo"
-sed -i '/enabled/d' /etc/yum.repos.d/google-chrome.repo 
-echo "enabled=1" >> /etc/yum.repos.d/google-chrome.repo
-
-echo "Downloading Google Signing Key"
-curl https://dl.google.com/linux/linux_signing_key.pub > /tmp/linux_signing_key.pub
-
-rpm --import /tmp/linux_signing_key.pub
-
 rpm-ostree install google-chrome-stable
 
+
+
+
+# rpm-ostree install fedora-workstation-repositories
 
 # install flatpaks
 # xargs flatpak install -y < /tmp/flatpaks.txt
