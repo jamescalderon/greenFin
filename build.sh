@@ -46,7 +46,7 @@ rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
 
-# vulkan-specific
+# x-plane-specific dependencies
 rpm-ostree install vulkan-tools
 rpm-ostree install meson
 rpm-ostree install vulkan-headers
@@ -63,6 +63,17 @@ rpm-ostree install vulkan-validation-layers-devel
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
+
+# Chrome native install
+# Part of an attempt to add Google Chrome in the usual way.
+echo "Fixing google-chrome yum repo"
+sed -i '/enabled/d' /etc/yum.repos.d/google-chrome.repo 
+echo "enabled=1" >> /etc/yum.repos.d/google-chrome.repo
+
+echo "Downloading Google Signing Key"
+curl https://dl.google.com/linux/linux_signing_key.pub > /tmp/linux_signing_key.pub
+
+rpm --import /tmp/linux_signing_key.pub
 
 # install flatpaks
 # xargs flatpak install -y < /tmp/flatpaks.txt
