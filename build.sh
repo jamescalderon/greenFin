@@ -77,6 +77,9 @@ curl https://dl.google.com/linux/linux_signing_key.pub > /tmp/linux_signing_key.
 
 rpm --import /tmp/linux_signing_key.pub
 
+rpm-ostree install google-chrome-stable
+
+
 # install flatpaks
 # xargs flatpak install -y < /tmp/flatpaks.txt
 
