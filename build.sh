@@ -2,13 +2,13 @@
 
 set -ouex pipefail
 
-RELEASE="$(rpm -E %fedora)"
+ARCH=$(uname -m)
+echo "ARCHITECTURE = $ARCH"
 
+RELEASE="$(rpm -E %fedora)"
 echo "RELEASE = $RELEASE"
 
-# echo "USER = $USER"
-
-### COPRs
+### Direct Repo Installs
 # - webapp (from Mint)
 curl -o /etc/yum.repos.d/refi64-webapp-manager-fedora.repo "https://copr.fedorainfracloud.org/coprs/refi64/webapp-manager/repo/fedora-${RELEASE}/refi64-webapp-manager-fedora-${RELEASE}.repo"
 
@@ -19,6 +19,14 @@ curl -o /etc/yum.repos.d/vscode.repo "https://packages.microsoft.com/yumrepos/vs
 rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo
+
+# Chrome native install
+echo "[google-chrome]
+name=google-chrome - \$ARCH
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
 
 
 # - DisplayLink Driver Installation
@@ -45,12 +53,39 @@ rpm-ostree install python3-pip
 rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
-rpm-ostree install vulkan-tools
 
-# from COPRs:
+# installs for x-plane flight simulator
+rpm-ostree install switcheroo-control
+rpm-ostree install vulkan-tools
+rpm-ostree install meson
+rpm-ostree install vulkan-headers
+rpm-ostree install vulkan-validation-layers-devel
+rpm-ostree install openal-soft
+rpm-ostree install mesa-libGL
+rpm-ostree install mesa-libGLU
+
+# meson builddir --prefix=/usr
+# meson compile -C builddir
+# sudo meson install -C builddir
+
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+# rpm-ostree install 
+
+
+# from Direct Repo Installs:
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
+rpm-ostree install google-chrome-stable
+
+
+
+
+# rpm-ostree install fedora-workstation-repositories
 
 # install flatpaks
 # xargs flatpak install -y < /tmp/flatpaks.txt
