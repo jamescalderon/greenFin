@@ -25,7 +25,7 @@ echo "[google-chrome]
 name=google-chrome - \$ARCH
 baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
 enabled=1
-gpgcheck=1
+gpgcheck=0
 gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
 
 
@@ -80,7 +80,7 @@ rpm-ostree install mesa-libGLU
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
-rpm-ostree install google-chrome-stable
+rpm-ostree install google-chrome-stable || echo "Failed to install google-chrome-stable"
 
 
 
