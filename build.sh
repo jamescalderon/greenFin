@@ -54,7 +54,8 @@ rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
 
-# x-plane-specific dependencies
+# installs for x-plane flight simulator
+rpm-ostree install switcheroo-control
 rpm-ostree install vulkan-tools
 rpm-ostree install meson
 rpm-ostree install vulkan-headers
