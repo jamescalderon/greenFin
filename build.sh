@@ -62,11 +62,15 @@ rpm-ostree install \
     openal-soft \
     mesa-libGL \
     mesa-libGLU \
-    freeglut \ # FlyWithLua
-    openal-soft \ # FlyWithLua
-    libcurl4-openssl-dev #for flightsim plugin
 
-rpm-ostree install switcheroo-control # commandline switch GPU
+    # X-Plane 12 related
+rpm-ostree install \
+    freeglut \ 
+    openal-soft \ 
+    libcurl4-openssl-dev 
+
+# commandline switch GPU
+rpm-ostree install switcheroo-control 
 
 # from Direct Repo Installs:
 rpm-ostree install \
