@@ -61,7 +61,7 @@ rpm-ostree install \
     vulkan-validation-layers-devel \
     openal-soft \
     mesa-libGL \
-    mesa-libGLU \
+    mesa-libGLU 
 
     # X-Plane 12 related
 rpm-ostree install \
