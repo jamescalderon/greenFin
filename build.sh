@@ -61,16 +61,15 @@ rpm-ostree install \
     vulkan-validation-layers-devel \
     openal-soft \
     mesa-libGL \
-    mesa-libGLU 
+    mesa-libGLU
 
-    # X-Plane 12 related
+# X-Plane 12 related
 rpm-ostree install \
     freeglut \ 
     openal-soft \ 
-    libcurl4-openssl-dev 
-
-# commandline switch GPU
-rpm-ostree install switcheroo-control 
+    libcurl4 \
+    libcurl-devel \
+    switcheroo-control
 
 # from Direct Repo Installs:
 rpm-ostree install \
