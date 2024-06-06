@@ -40,40 +40,37 @@ gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.re
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-rpm-ostree install \
-    screen \
-    stow \
-    firefox \
-    chromium \
-    thunderbird \
-    nautilus-open-any-terminal \
-    jetbrains-mono-fonts \
-    python3-pip \
-    gparted \
-    grub-customizer \
-    gnome-terminal-nautilus \
-    meson
+# General tools and utilities
+rpm-ostree install screen
+rpm-ostree install stow
+rpm-ostree install firefox
+rpm-ostree install chromium
+rpm-ostree install thunderbird
+rpm-ostree install nautilus-open-any-terminal
+rpm-ostree install jetbrains-mono-fonts
+rpm-ostree install python3-pip
+rpm-ostree install gparted
+rpm-ostree install grub-customizer
+rpm-ostree install gnome-terminal-nautilus
+rpm-ostree install meson
 
-# NVidia GPU installs
-rpm-ostree install \
-    vulkan-tools \
-    vulkan-headers \
-    vulkan-validation-layers-devel \
-    mesa-libGL \
-    mesa-libGLU
+# NVidia GPU related packages
+rpm-ostree install vulkan-tools
+rpm-ostree install vulkan-headers
+rpm-ostree install vulkan-validation-layers-devel
+rpm-ostree install mesa-libGL
+rpm-ostree install mesa-libGLU
 
-# X-Plane 12 related
-rpm-ostree install \
-    freeglut \ 
-    openal-soft \ 
-    libcurl \
-    libcurl-devel \
-    switcheroo-control
+# X-Plane 12 related packages
+rpm-ostree install freeglut
+rpm-ostree install openal-soft
+rpm-ostree install libcurl
+rpm-ostree install libcurl-devel
+rpm-ostree install switcheroo-control
 
-# from Direct Repo Installs:
-rpm-ostree install \
-    webapp-manager \
-    code-insiders \
-    firefoxpwa
-
+# Direct Repo Installs
+rpm-ostree install webapp-manager
+rpm-ostree install code-insiders
+rpm-ostree install firefoxpwa
 rpm-ostree install google-chrome-stable || echo "Failed to install google-chrome-stable"
+
