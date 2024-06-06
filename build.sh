@@ -59,7 +59,6 @@ rpm-ostree install \
     vulkan-tools \
     vulkan-headers \
     vulkan-validation-layers-devel \
-    openal-soft \
     mesa-libGL \
     mesa-libGLU
 
@@ -67,7 +66,7 @@ rpm-ostree install \
 rpm-ostree install \
     freeglut \ 
     openal-soft \ 
-    libcurl4 \
+    libcurl \
     libcurl-devel \
     switcheroo-control
 
