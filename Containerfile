@@ -53,6 +53,9 @@ COPY build.sh /tmp/build.sh
 COPY flatpaks.txt /tmp/flatpaks.txt
 COPY extensions.txt /tmp/extensions.txt
 
+# for X-Plane 12
+COPY 52-HoneycombBravo.rules /usr/lib/udev/rules.d 
+
 # run build
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
