@@ -67,6 +67,8 @@ rpm-ostree install openal-soft
 rpm-ostree install libcurl
 rpm-ostree install libcurl-devel
 rpm-ostree install switcheroo-control
+rpm-ostree install gtk3
+rpm-ostree install libglvnd-glx
 
 # Direct Repo Installs
 rpm-ostree install webapp-manager
