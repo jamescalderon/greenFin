@@ -50,11 +50,12 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 # copy files from repo to build
 COPY build.sh /tmp/build.sh
-COPY flatpaks.txt /tmp/flatpaks.txt
-COPY extensions.txt /tmp/extensions.txt
+# COPY flatpaks.txt /tmp/flatpaks.txt
+# COPY extensions.txt /tmp/extensions.txt
 
-# for X-Plane 12
-COPY 52-HoneycombBravo.rules /usr/lib/udev/rules.d 
+# for X-Plane 12, copy over udev rules
+COPY flightSim/51-Xsaitekpanels.rules /usr/lib/udev/rules.d 
+COPY flightSim/52-HoneycombBravo.rules /usr/lib/udev/rules.d
 
 # run build
 RUN mkdir -p /var/lib/alternatives && \
