@@ -56,6 +56,8 @@ COPY build.sh /tmp/build.sh
 # for X-Plane 12, copy over udev rules
 COPY flightSim/51-Xsaitekpanels.rules /usr/lib/udev/rules.d 
 COPY flightSim/52-HoneycombBravo.rules /usr/lib/udev/rules.d
+COPY flightSim/53-saitek-devices.rules /usr/lib/udev/rules.d
+
 
 # run build
 RUN mkdir -p /var/lib/alternatives && \
