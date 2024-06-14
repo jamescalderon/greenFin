@@ -85,14 +85,12 @@ rpm-ostree install procps-ng-devel
 rpm-ostree install opencv-devel
 rpm-ostree install wine-devel
 rpm-ostree install glibc-devel
-# rpm-ostree install wine
 rpm-ostree install winetricks
 rpm-ostree install protontricks
-# rpm-ostree install p7zip
 
 # wine-related extras
-rpm-ostree install wineglass
-rpm-ostree install playonlinux
+# rpm-ostree install wineglass
+# rpm-ostree install playonlinux
 
 
 
