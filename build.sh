@@ -40,6 +40,7 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
+
 # General tools and utilities
 rpm-ostree install screen
 rpm-ostree install stow
@@ -53,6 +54,12 @@ rpm-ostree install gparted
 rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
 rpm-ostree install meson
+
+# Direct Repo Installs
+rpm-ostree install webapp-manager
+rpm-ostree install code-insiders
+rpm-ostree install firefoxpwa
+# rpm-ostree install google-chrome-stable || echo "Failed to install google-chrome-stable"
 
 # NVidia GPU related packages
 rpm-ostree install vulkan-tools
@@ -77,7 +84,6 @@ rpm-ostree install qt5-qtbase-private-devel
 rpm-ostree install procps-ng-devel
 rpm-ostree install opencv-devel
 rpm-ostree install wine-devel
-rpm-ostree install wine-devel
 rpm-ostree install glibc-devel
 # rpm-ostree install wine
 # rpm-ostree install winetricks
@@ -88,9 +94,5 @@ rpm-ostree install glibc-devel
 # rpm-ostree install wineglass
 # rpm-ostree install playonlinux
 
-# Direct Repo Installs
-rpm-ostree install webapp-manager
-rpm-ostree install code-insiders
-rpm-ostree install firefoxpwa
-# rpm-ostree install google-chrome-stable || echo "Failed to install google-chrome-stable"
+
 
