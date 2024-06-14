@@ -70,6 +70,16 @@ rpm-ostree install switcheroo-control
 rpm-ostree install gtk3
 rpm-ostree install libglvnd-glx
 
+# opentrack-related:
+rpm-ostree install wine
+rpm-ostree install winetricks
+rpm-ostree install protontricks
+rpm-ostree install p7zip
+
+# wine-related extras
+rpm-ostree install wineglass
+rpm-ostree install playonlinux
+
 # Direct Repo Installs
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
