@@ -77,8 +77,8 @@ rpm-ostree install protontricks
 rpm-ostree install p7zip
 
 # wine-related extras
-rpm-ostree install wineglass
-rpm-ostree install playonlinux
+# rpm-ostree install wineglass
+# rpm-ostree install playonlinux
 
 # Direct Repo Installs
 rpm-ostree install webapp-manager
