@@ -78,6 +78,8 @@ rpm-ostree install gtk3
 rpm-ostree install libglvnd-glx
 
 # opentrack-related:
+
+rpm-ostree install wine
 rpm-ostree install cmake
 rpm-ostree install qt5-qttools-devel
 rpm-ostree install qt5-qtbase-private-devel
