@@ -149,11 +149,11 @@
             COSIGN_EXPERIMENTAL: false
             COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
   
-        # Release Drafter
-        - name: Draft Release
-          uses: release-drafter/release-drafter@v6
-          with:
-            config-name: release-drafter.yml
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # # Release Drafter
+        # - name: Draft Release
+        #   uses: release-drafter/release-drafter@v6
+        #   with:
+        #     config-name: release-drafter.yml
+        #   env:
+        #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
