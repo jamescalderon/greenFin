@@ -71,10 +71,11 @@ rpm-ostree install gtk3
 rpm-ostree install libglvnd-glx
 
 # opentrack-related:
-rpm-ostree install wine
+rpm-ostree install cmake qt5-qttools-devel qt5-qtbase-private-devel procps-ng-devel opencv-devel wine-devel wine-devel.i686 glibc-devel.i686
+# rpm-ostree install wine
 rpm-ostree install winetricks
 rpm-ostree install protontricks
-rpm-ostree install p7zip
+# rpm-ostree install p7zip
 
 # wine-related extras
 # rpm-ostree install wineglass
