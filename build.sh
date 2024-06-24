@@ -32,15 +32,12 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
 # curl -o displaylink.rpm "${DISPLAYLINK_RPM_URL}"
 
-# # openvpn3
+# Fetch and install openvpn3-client
 copr_owner="dsommers"
-
 wget https://copr.fedorainfracloud.org/coprs/"${copr_owner}"/openvpn3/repo/fedora-"${RELEASE}"/"${copr_owner}"-openvpn3-fedora-"${RELEASE}".repo -O /etc/yum.repos.d/openvpn3-fedora.repo &&
-  rpm-ostree install openvpn3-client
-  # mkdir -p /var/lib/openvpn3/configs &&
-  # rm -rf /etc/yum.repos.d/openvpn3-fedora.repo
+  rpm-ostree install openvpn3-client || echo "Installation ${copr_owner}-openvpn3-fedora-${RELEASE} failed - issue retrieving repo"
 
-### Install packages
+## Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
 # RPMfusion repos are available by default in ublue main images
