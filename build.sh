@@ -21,16 +21,24 @@ rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo
 
 # Chrome native install
-echo "[google-chrome]
-name=google-chrome - \$ARCH
-baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
-enabled=1
-gpgcheck=0
-gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
+# echo "[google-chrome]
+# name=google-chrome - \$ARCH
+# baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
+# enabled=1
+# gpgcheck=0
+# gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
 
 # - DisplayLink Driver Installation
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
 # curl -o displaylink.rpm "${DISPLAYLINK_RPM_URL}"
+
+# # openvpn3
+copr_owner="dsommers"
+
+wget https://copr.fedorainfracloud.org/coprs/"${copr_owner}"/openvpn3/repo/fedora-"${ARCHITECTURE}"/"${copr_owner}"-openvpn3-fedora-"${ARCHITECTURE}".repo -O /etc/yum.repos.d/openvpn3-fedora.repo &&
+  rpm-ostree install openvpn3-client &&
+  mkdir -p /var/lib/openvpn3/configs &&
+  rm -rf /etc/yum.repos.d/openvpn3-fedora.repo
 
 ### Install packages
 
@@ -74,5 +82,4 @@ rpm-ostree install libglvnd-glx
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
-rpm-ostree install google-chrome-stable || echo "Failed to install google-chrome-stable"
-
+# rpm-ostree install google-chrome-stable || echo "Failed to install google-chrome-stable"
