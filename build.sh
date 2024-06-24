@@ -36,9 +36,9 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 copr_owner="dsommers"
 
 wget https://copr.fedorainfracloud.org/coprs/"${copr_owner}"/openvpn3/repo/fedora-"${ARCHITECTURE}"/"${copr_owner}"-openvpn3-fedora-"${ARCHITECTURE}".repo -O /etc/yum.repos.d/openvpn3-fedora.repo &&
-  rpm-ostree install openvpn3-client &&
-  mkdir -p /var/lib/openvpn3/configs &&
-  rm -rf /etc/yum.repos.d/openvpn3-fedora.repo
+  rpm-ostree install openvpn3-client
+  # mkdir -p /var/lib/openvpn3/configs &&
+  # rm -rf /etc/yum.repos.d/openvpn3-fedora.repo
 
 ### Install packages
 
