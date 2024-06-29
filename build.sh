@@ -18,7 +18,7 @@ curl -o /etc/yum.repos.d/vscode.repo "https://packages.microsoft.com/yumrepos/vs
 # - Firefox PWA
 rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
-echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo
+echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
 
 # Chrome native install (keep getting GPG error?)
 # echo "[google-chrome]
@@ -26,11 +26,11 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
 # enabled=1
 # gpgcheck=1
-# gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
+# gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | tee /etc/yum.repos.d/google-chrome.repo
 
 # Ensure the .gnupg directory exists
-sudo mkdir -p /root/.gnupg
-sudo chmod 700 /root/.gnupg
+mkdir -p /root/.gnupg || echo "FAILED: mkdir -p /root/.gnupg"
+chmod 700 /root/.gnupg || echo "FAILED: chmod 700 /root/.gnupg"
 
 curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
 gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' > google.asc
