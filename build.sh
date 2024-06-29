@@ -21,12 +21,16 @@ rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | sudo tee /etc/yum.repos.d/firefoxpwa.repo
 
 # Chrome native install (keep getting GPG error?)
-echo "[google-chrome]
-name=google-chrome - \$ARCH
-baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
-enabled=1
-gpgcheck=1
-gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
+# echo "[google-chrome]
+# name=google-chrome - \$ARCH
+# baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
+# enabled=1
+# gpgcheck=1
+# gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
+
+curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
+gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' > google.asc
+sudo rpm-ostree install google-chrome-stable --gpg-import=google.asc || echo "NEW FAILED: google-chrome-stable install"
 
 # - DisplayLink Driver Installation (https://github.com/displaylink-rpm/displaylink-rpm - already included in bluefin?)
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
@@ -79,4 +83,4 @@ rpm-ostree install libglvnd-glx
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
-rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable install"
+# rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable install"
