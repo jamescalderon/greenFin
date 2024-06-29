@@ -30,7 +30,8 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 
 curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
 gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' > google.asc
-sudo rpm-ostree install google-chrome-stable --gpg-import=google.asc || echo "NEW FAILED: google-chrome-stable install"
+
+rpm-ostree install google-chrome-stable --gpg-import=google.asc || echo "NEW FAILED: google-chrome-stable install"
 
 # - DisplayLink Driver Installation (https://github.com/displaylink-rpm/displaylink-rpm - already included in bluefin?)
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
