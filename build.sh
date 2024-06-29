@@ -28,6 +28,10 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # gpgcheck=1
 # gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | sudo tee /etc/yum.repos.d/google-chrome.repo
 
+# Ensure the .gnupg directory exists
+sudo mkdir -p /root/.gnupg
+sudo chmod 700 /root/.gnupg
+
 curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
 gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' > google.asc
 
