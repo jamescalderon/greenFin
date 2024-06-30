@@ -34,11 +34,17 @@ rpm --import https://dl.google.com/linux/linux_signing_key.pub || echo "Chrome I
 # gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | tee /etc/yum.repos.d/google-chrome.repo
 
 
-echo "[google-chrome]
-name=google-chrome - \$ARCH
-baseurl=https://dl.google.com/linux/chrome/rpm/stable/\$ARCH
-enabled=1
-gpgcheck=0" | tee /etc/yum.repos.d/google-chrome.repo
+# echo "[google-chrome]
+# name=google-chrome - x86_64
+# baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
+# enabled=1
+# gpgcheck=0" | tee /etc/yum.repos.d/google-chrome.repo
+
+
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+
+rpm-ostree install google-chrome-stable_current_x86_64.rpm || echo "FAILED: google-chrome-stable rpm-ostree install"
 
 # Ensure the .gnupg directory exists
 # mkdir -p /root/.gnupg || echo "FAILED: mkdir -p /root/.gnupg"
@@ -104,4 +110,4 @@ rpm-ostree install libglvnd-glx
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
-rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable rpm-ostree install"
+# rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable rpm-ostree install"
