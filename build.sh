@@ -29,13 +29,20 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | tee /etc/yum.repos.d/google-chrome.repo
 
 # Ensure the .gnupg directory exists
-mkdir -p /root/.gnupg || echo "FAILED: mkdir -p /root/.gnupg"
-chmod 700 /root/.gnupg || echo "FAILED: chmod 700 /root/.gnupg"
+# mkdir -p /root/.gnupg || echo "FAILED: mkdir -p /root/.gnupg"
+# chmod 700 /root/.gnupg || echo "FAILED: chmod 700 /root/.gnupg"
 
-curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
-gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' > google.asc
+# curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
+# gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' >google.asc
 
-rpm-ostree install google-chrome-stable --gpg-import=google.asc || echo "NEW FAILED: google-chrome-stable install"
+# rpm-ostree install google-chrome-stable --gpg-import=google.asc || echo "NEW FAILED: google-chrome-stable install"
+
+# wget https://dl.google.com/linux/linux_signing_key.pub
+
+# rpm will silently fail when importing new subkeys to an existing key
+rpm -e gpg-pubkey-7fac5991-* gpg-pubkey-d38b4796-* || echo "Chrome Install Notice - Existing keys not found"
+
+rpm --import https://dl.google.com/linux/linux_signing_key.pub || echo "Chrome Install Notice - FAILED: rpm --import https://dl.google.com/linux/linux_signing_key.pub"
 
 # - DisplayLink Driver Installation (https://github.com/displaylink-rpm/displaylink-rpm - already included in bluefin?)
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
@@ -88,4 +95,4 @@ rpm-ostree install libglvnd-glx
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
-# rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable install"
+rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable rpm-ostree install"
