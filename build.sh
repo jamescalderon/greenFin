@@ -20,13 +20,25 @@ rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
 
+# rpm will silently fail when importing new subkeys to an existing key
+rpm -e gpg-pubkey-7fac5991-* gpg-pubkey-d38b4796-* || echo "Chrome Install Notice - Existing keys not found"
+
+rpm --import https://dl.google.com/linux/linux_signing_key.pub || echo "Chrome Install Notice - FAILED: rpm --import https://dl.google.com/linux/linux_signing_key.pub"
+
 # Chrome native install (keep getting GPG error?)
 # echo "[google-chrome]
 # name=google-chrome - \$ARCH
 # baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
 # enabled=1
-# gpgcheck=1
+# gpgcheck=0
 # gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | tee /etc/yum.repos.d/google-chrome.repo
+
+
+echo "[google-chrome]
+name=google-chrome - \$ARCH
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/\$ARCH
+enabled=1
+gpgcheck=0" | tee /etc/yum.repos.d/google-chrome.repo
 
 # Ensure the .gnupg directory exists
 # mkdir -p /root/.gnupg || echo "FAILED: mkdir -p /root/.gnupg"
@@ -39,10 +51,7 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 
 # wget https://dl.google.com/linux/linux_signing_key.pub
 
-# rpm will silently fail when importing new subkeys to an existing key
-rpm -e gpg-pubkey-7fac5991-* gpg-pubkey-d38b4796-* || echo "Chrome Install Notice - Existing keys not found"
 
-rpm --import https://dl.google.com/linux/linux_signing_key.pub || echo "Chrome Install Notice - FAILED: rpm --import https://dl.google.com/linux/linux_signing_key.pub"
 
 # - DisplayLink Driver Installation (https://github.com/displaylink-rpm/displaylink-rpm - already included in bluefin?)
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
