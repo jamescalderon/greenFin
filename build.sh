@@ -20,62 +20,19 @@ rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
 echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
 
-# rpm will silently fail when importing new subkeys to an existing key
-rpm -e gpg-pubkey-7fac5991-* gpg-pubkey-d38b4796-* || echo "Chrome Install Notice - Existing keys not found"
+# CHROME NATIVE
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm # installing RPM works for now
 
-rpm --import https://dl.google.com/linux/linux_signing_key.pub || echo "Chrome Install Notice - FAILED: rpm --import https://dl.google.com/linux/linux_signing_key.pub"
-
-# Chrome native install (keep getting GPG error?)
-# echo "[google-chrome]
-# name=google-chrome - \$ARCH
-# baseurl=https://dl.google.com/linux/chrome/rpm/stable/$ARCH
-# enabled=1
-# gpgcheck=0
-# gpgkey=https://dl.google.com/linux/linux_signing_key.pub" | tee /etc/yum.repos.d/google-chrome.repo
-
-
-# echo "[google-chrome]
-# name=google-chrome - x86_64
-# baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
-# enabled=1
-# gpgcheck=0" | tee /etc/yum.repos.d/google-chrome.repo
-
-
-# wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-
-rpm-ostree install google-chrome-stable_current_x86_64.rpm || echo "FAILED: google-chrome-stable rpm-ostree install"
-
-# Ensure the .gnupg directory exists
-# mkdir -p /root/.gnupg || echo "FAILED: mkdir -p /root/.gnupg"
-# chmod 700 /root/.gnupg || echo "FAILED: chmod 700 /root/.gnupg"
-
-# curl https://dl.google.com/linux/linux_signing_key.pub | gpg --import
-# gpg --export --armor 'Google Inc. (Linux Packages Signing Authority) <linux-packages-keymaster@google.com>' >google.asc
-
-# rpm-ostree install google-chrome-stable --gpg-import=google.asc || echo "NEW FAILED: google-chrome-stable install"
-
-# wget https://dl.google.com/linux/linux_signing_key.pub
-
-
-
-# - DisplayLink Driver Installation (https://github.com/displaylink-rpm/displaylink-rpm - already included in bluefin?)
+# - DISPLAYLINK DRIVER INSTALLATION (HTTPS://GITHUB.COM/DISPLAYLINK-RPM/DISPLAYLINK-RPM - ALREADY INCLUDED IN BLUEFIN?)
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
 # curl -o displaylink.rpm "${DISPLAYLINK_RPM_URL}"
 
-# Fetch and install openvpn3-client (currently broken)
+# FETCH AND INSTALL OPENVPN3-CLIENT (CURRENTLY BROKEN)
 # copr_owner="dsommers"
 # wget https://copr.fedorainfracloud.org/coprs/"${copr_owner}"/openvpn3/repo/fedora-"${RELEASE}"/"${copr_owner}"-openvpn3-fedora-"${RELEASE}".repo -O /etc/yum.repos.d/openvpn3-fedora.repo &&
 #   rpm-ostree install openvpn3-client || echo "Installation ${copr_owner}-openvpn3-fedora-${RELEASE} failed - issue retrieving repo"
 
-## Install packages
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
 # General tools and utilities
 rpm-ostree install screen
 rpm-ostree install stow
@@ -111,3 +68,9 @@ rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
 # rpm-ostree install google-chrome-stable || echo "FAILED: google-chrome-stable rpm-ostree install"
+rpm-ostree install google-chrome-stable_current_x86_64.rpm || echo "FAILED: google-chrome-stable rpm-ostree install"
+
+# Packages can be installed from any enabled yum repo on the image.
+# RPMfusion repos are available by default in ublue main images
+# List of rpmfusion packages can be found here:
+# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
