@@ -69,23 +69,17 @@ rpm-ostree install switcheroo-control
 rpm-ostree install gtk3
 rpm-ostree install libglvnd-glx
 
-# OPENTRACK-RELATED:
-
-# rpm-ostree install wine
+# OPENTRACK/AITRACK-RELATED:
 rpm-ostree install cmake
-rpm-ostree install qt5-qttools-devel
-rpm-ostree install qt5-qtbase-private-devel
-rpm-ostree install procps-ng-devel
-rpm-ostree install opencv-devel
-rpm-ostree install wine-devel
 rpm-ostree install glibc-devel
-# rpm-ostree install winetricks
-# rpm-ostree install protontricks
-
-# wine-related extras
-# rpm-ostree install wineglass
-# rpm-ostree install playonlinux
-
+rpm-ostree install opencv-devel
+rpm-ostree install procps-ng-devel
+rpm-ostree install qt5-qtbase-devel
+rpm-ostree install qt5-qtbase-private-devel
+rpm-ostree install qt5-qttools-devel
+rpm-ostree install qt5-qtx11extras-devel
+rpm-ostree install spdlog-devel
+rpm-ostree install wine-devel
 
 # Direct Repo Installs
 rpm-ostree install webapp-manager
