@@ -77,8 +77,8 @@ rpm-ostree install qt5-qttools-devel
 rpm-ostree install qt5-qtbase-private-devel
 rpm-ostree install procps-ng-devel
 rpm-ostree install opencv-devel
-# rpm-ostree install wine-devel
-# rpm-ostree install glibc-devel
+rpm-ostree install wine-devel
+rpm-ostree install glibc-devel
 # rpm-ostree install winetricks
 # rpm-ostree install protontricks
 
