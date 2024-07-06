@@ -72,6 +72,9 @@ rpm-ostree install qt5-qttools-devel
 rpm-ostree install qt5-qtx11extras-devel
 rpm-ostree install spdlog-devel
 rpm-ostree install wine-devel
+rpm-ostree install v4l-utils
+rpm-ostree install v4l-utils-devel
+
 
 # for X-Plane and OpenTrack/AirTrack, copy over pre-compiled model files
 
