@@ -73,6 +73,19 @@ rpm-ostree install qt5-qtx11extras-devel
 rpm-ostree install spdlog-devel
 rpm-ostree install wine-devel
 
+# for X-Plane and OpenTrack/AirTrack, copy over pre-compiled model files
+git clone git@github.com:mdk97/aitrack-linux.git
+cd aitrack-linux
+curl -L https://github.com/microsoft/onnxruntime/releases/download/v1.4.0/onnxruntime-linux-x64-1.4.0.tgz -o onnxruntime-linux-x64-1.4.0.tgz
+tar -xzvf onnxruntime-linux-x64-1.4.0.tgz
+qmake-qt5 -makefile
+make
+
+mkdir /usr/share/aitrack && mkdir /usr/share/aitrack/models
+cp models/* /usr/share/aitrack/models/
+cp onnxruntime-linux-x64-1.4.0/lib/libonnxruntime.so.1.4.0 /usr/lib64/
+cp ./aitrack /usr/bin/
+
 # Direct Repo Installs
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
