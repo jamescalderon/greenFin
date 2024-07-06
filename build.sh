@@ -74,7 +74,9 @@ rpm-ostree install spdlog-devel
 rpm-ostree install wine-devel
 
 # for X-Plane and OpenTrack/AirTrack, copy over pre-compiled model files
-git clone git@github.com:mdk97/aitrack-linux.git
+
+# git clone git@github.com:mdk97/aitrack-linux.git
+git clone https://github.com/mdk97/aitrack-linux.git
 cd aitrack-linux
 curl -L https://github.com/microsoft/onnxruntime/releases/download/v1.4.0/onnxruntime-linux-x64-1.4.0.tgz -o onnxruntime-linux-x64-1.4.0.tgz
 tar -xzvf onnxruntime-linux-x64-1.4.0.tgz
