@@ -30,11 +30,12 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 #   rpm-ostree install openvpn3-client || echo "Installation ${copr_owner}-openvpn3-fedora-${RELEASE} failed - issue retrieving repo"
 
 # NVIDIA Container Toolkit
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo rpm --import -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
+# distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+# curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | rpm --import -
+# curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
 
-
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
+  sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
 
 
 # this installs a package from fedora repos
@@ -59,7 +60,7 @@ rpm-ostree install vulkan-headers
 rpm-ostree install vulkan-validation-layers-devel
 rpm-ostree install mesa-libGL
 rpm-ostree install mesa-libGLU
-rpm-ostree install nvidia-docker2
+rpm-ostree install nvidia-container-toolkit
 
 # X-Plane 12 related packages
 rpm-ostree install freeglut
