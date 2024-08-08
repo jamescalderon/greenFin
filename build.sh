@@ -29,6 +29,14 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # wget https://copr.fedorainfracloud.org/coprs/"${copr_owner}"/openvpn3/repo/fedora-"${RELEASE}"/"${copr_owner}"-openvpn3-fedora-"${RELEASE}".repo -O /etc/yum.repos.d/openvpn3-fedora.repo &&
 #   rpm-ostree install openvpn3-client || echo "Installation ${copr_owner}-openvpn3-fedora-${RELEASE} failed - issue retrieving repo"
 
+# NVIDIA Container Toolkit
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo rpm --import -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
+
+
+
+
 # this installs a package from fedora repos
 
 # General tools and utilities
@@ -51,6 +59,7 @@ rpm-ostree install vulkan-headers
 rpm-ostree install vulkan-validation-layers-devel
 rpm-ostree install mesa-libGL
 rpm-ostree install mesa-libGLU
+rpm-ostree install nvidia-docker2
 
 # X-Plane 12 related packages
 rpm-ostree install freeglut
