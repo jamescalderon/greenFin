@@ -35,7 +35,21 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
 
 curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
-  sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo && \
+rpm-ostree install nvidia-container-toolkit
+
+# Configure Docker to Use NVIDIA Runtime
+  tee /etc/docker/daemon.json <<EOF
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+EOF
 
 
 # this installs a package from fedora repos
@@ -60,7 +74,7 @@ rpm-ostree install vulkan-headers
 rpm-ostree install vulkan-validation-layers-devel
 rpm-ostree install mesa-libGL
 rpm-ostree install mesa-libGLU
-rpm-ostree install nvidia-container-toolkit
+
 
 # X-Plane 12 related packages
 rpm-ostree install freeglut
