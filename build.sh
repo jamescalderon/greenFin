@@ -68,6 +68,10 @@ rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
 rpm-ostree install meson
 
+# Cisco AnyConnect VPN client alternative
+rpm-ostree install network-manager-openconnect
+rpm-ostree install network-manager-openconnect-gnome
+
 # NVidia GPU related packages
 rpm-ostree install vulkan-tools
 rpm-ostree install vulkan-headers
