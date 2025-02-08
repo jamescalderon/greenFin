@@ -41,10 +41,10 @@ ARG SOURCE_TAG="stable"
 
 ### 2. SOURCE IMAGE
 ## this is a standard Containerfile FROM using the build ARGs above to select the right upstream image
-# FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
+FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 # set for the time being to preserve DisplayLink drivers
-FROM ghcr.io/jamescalderon/greenfin:20240815 
+# FROM ghcr.io/jamescalderon/greenfin:20240815 
 
 ### 3. MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
@@ -56,13 +56,13 @@ COPY build.sh /tmp/build.sh
 # COPY flatpaks.txt /tmp/flatpaks.txt
 # COPY extensions.txt /tmp/extensions.txt
 
-# for X-Plane 12, copy over udev rules
-COPY flightSim/51-Xsaitekpanels.rules /usr/lib/udev/rules.d 
-COPY flightSim/52-HoneycombBravo.rules /usr/lib/udev/rules.d
-COPY flightSim/53-saitek-devices.rules /usr/lib/udev/rules.d
+# # for X-Plane 12, copy over udev rules
+# COPY flightSim/51-Xsaitekpanels.rules /usr/lib/udev/rules.d 
+# COPY flightSim/52-HoneycombBravo.rules /usr/lib/udev/rules.d
+# COPY flightSim/53-saitek-devices.rules /usr/lib/udev/rules.d
 
-# Non-Root Users to Bind to Port 80 (needed for postman)
-RUN echo 'net.ipv4.ip_unprivileged_port_start=80' >> /etc/sysctl.conf
+# # Non-Root Users to Bind to Port 80 (needed for postman)
+# RUN echo 'net.ipv4.ip_unprivileged_port_start=80' >> /etc/sysctl.conf
 
 
 # run build
