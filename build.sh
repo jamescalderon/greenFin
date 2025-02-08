@@ -35,7 +35,7 @@ curl -o /etc/yum.repos.d/vscode.repo "https://packages.microsoft.com/yumrepos/vs
 # curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | tee /etc/yum.repos.d/nvidia-docker.repo
 
 curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
-sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo && \
+tee /etc/yum.repos.d/nvidia-container-toolkit.repo && \
 rpm-ostree install nvidia-container-toolkit
 
 # Configure Docker to Use NVIDIA Runtime
