@@ -16,9 +16,9 @@ curl -o /etc/yum.repos.d/refi64-webapp-manager-fedora.repo "https://copr.fedorai
 curl -o /etc/yum.repos.d/vscode.repo "https://packages.microsoft.com/yumrepos/vscode/config.repo"
 
 # - Firefox PWA
-rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
+# rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
-echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
+# echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
 
 # - DISPLAYLINK DRIVER INSTALLATION (HTTPS://GITHUB.COM/DISPLAYLINK-RPM/DISPLAYLINK-RPM - ALREADY INCLUDED IN BLUEFIN?)
 # DISPLAYLINK_RPM_URL="https://github.com/displaylink-rpm/displaylink-rpm/releases/download/v5.8.0-1/fedora-39-displaylink-1.14.1-2.x86_64.rpm"
@@ -57,7 +57,7 @@ EOF
 # General tools and utilities
 rpm-ostree install screen
 rpm-ostree install stow
-rpm-ostree install firefox
+# rpm-ostree install firefox
 rpm-ostree install chromium
 rpm-ostree install thunderbird
 rpm-ostree install nautilus-open-any-terminal
@@ -104,7 +104,7 @@ rpm-ostree install wine-devel
 # Direct Repo Installs
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
-rpm-ostree install firefoxpwa
+# rpm-ostree install firefoxpwa
 
 # Packages can be installed from any enabled yum repo on the image.
 # RPMfusion repos are available by default in ublue main images
