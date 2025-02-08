@@ -53,16 +53,16 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 # copy files from repo to build
 COPY build.sh /tmp/build.sh
-# COPY flatpaks.txt /tmp/flatpaks.txt
-# COPY extensions.txt /tmp/extensions.txt
+COPY flatpaks.txt /tmp/flatpaks.txt
+COPY extensions.txt /tmp/extensions.txt
 
-# # for X-Plane 12, copy over udev rules
-# COPY flightSim/51-Xsaitekpanels.rules /usr/lib/udev/rules.d 
-# COPY flightSim/52-HoneycombBravo.rules /usr/lib/udev/rules.d
-# COPY flightSim/53-saitek-devices.rules /usr/lib/udev/rules.d
+# for X-Plane 12, copy over udev rules
+COPY flightSim/51-Xsaitekpanels.rules /usr/lib/udev/rules.d 
+COPY flightSim/52-HoneycombBravo.rules /usr/lib/udev/rules.d
+COPY flightSim/53-saitek-devices.rules /usr/lib/udev/rules.d
 
-# # Non-Root Users to Bind to Port 80 (needed for postman)
-# RUN echo 'net.ipv4.ip_unprivileged_port_start=80' >> /etc/sysctl.conf
+# Non-Root Users to Bind to Port 80 (needed for postman)
+RUN echo 'net.ipv4.ip_unprivileged_port_start=80' >> /etc/sysctl.conf
 
 
 # run build
