@@ -67,7 +67,7 @@ COPY build.sh /tmp/build.sh
 
 # run build
 RUN mkdir -p /var/lib/alternatives && \
-    /tmp/build.sh && \
+    # /tmp/build.sh && \
     ostree container commit
 
 ## NOTES:
