@@ -67,7 +67,7 @@ RUN echo 'net.ipv4.ip_unprivileged_port_start=80' >> /etc/sysctl.conf
 
 # run build
 RUN mkdir -p /var/lib/alternatives && \
-    # /tmp/build.sh && \
+    /tmp/build.sh && \
     ostree container commit
 
 ## NOTES:
