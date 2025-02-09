@@ -5,8 +5,8 @@
       branches:
         - main
         - test/*
-    # schedule:
-    #   - cron: '05 10 * * 0'  # 10:05am UTC Sundays
+    schedule:
+      - cron: '05 10 * * 0'  # 10:05am UTC Sundays
     push:
       branches:
         - main
