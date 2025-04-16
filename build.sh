@@ -16,7 +16,7 @@ curl -o /etc/yum.repos.d/refi64-webapp-manager-fedora.repo "https://copr.fedorai
 curl -o /etc/yum.repos.d/vscode.repo "https://packages.microsoft.com/yumrepos/vscode/config.repo"
 
 # - Firefox PWA
-# rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
+rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
 
 # echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" | tee /etc/yum.repos.d/firefoxpwa.repo
 
@@ -100,7 +100,7 @@ rpm-ostree install libglvnd-glx
 # Direct Repo Installs
 rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
-# rpm-ostree install firefoxpwa
+rpm-ostree install firefoxpwa
 
 # Packages can be installed from any enabled yum repo on the image.
 # RPMfusion repos are available by default in ublue main images
