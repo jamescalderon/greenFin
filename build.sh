@@ -29,22 +29,22 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 #   rpm-ostree install openvpn3-client || echo "Installation ${copr_owner}-openvpn3-fedora-${RELEASE} failed - issue retrieving repo"
 
 # NVIDIA Container Toolkit
-# curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
-# tee /etc/yum.repos.d/nvidia-container-toolkit.repo && \
-# rpm-ostree install nvidia-container-toolkit
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
+tee /etc/yum.repos.d/nvidia-container-toolkit.repo && \
+rpm-ostree install nvidia-container-toolkit
 
-# # Configure Docker to Use NVIDIA Runtime
-#   tee /etc/docker/daemon.json <<EOF
-# {
-#     "default-runtime": "nvidia",
-#     "runtimes": {
-#         "nvidia": {
-#             "path": "nvidia-container-runtime",
-#             "runtimeArgs": []
-#         }
-#     }
-# }
-# EOF
+# Configure Docker to Use NVIDIA Runtime
+  tee /etc/docker/daemon.json <<EOF
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+EOF
 
 
 # this installs a package from fedora repos
@@ -52,7 +52,7 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=300\nbaseurl=https://pac
 # General tools and utilities
 rpm-ostree install screen
 rpm-ostree install stow
-# rpm-ostree install firefox
+rpm-ostree install firefox
 rpm-ostree install chromium
 rpm-ostree install thunderbird
 rpm-ostree install nautilus-open-any-terminal
