@@ -57,6 +57,7 @@ rpm-ostree install chromium
 # rpm-ostree install thunderbird
 # rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
+rpm-ostree install mscore-fonts
 # rpm-ostree install python3-pip
 rpm-ostree install gparted
 rpm-ostree install gnome-terminal-nautilus
