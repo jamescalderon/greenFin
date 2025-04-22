@@ -54,15 +54,16 @@ rpm-ostree install screen
 rpm-ostree install stow
 rpm-ostree install firefox
 rpm-ostree install chromium
-rpm-ostree install thunderbird
-rpm-ostree install nautilus-open-any-terminal
+# rpm-ostree install thunderbird
+# rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
-rpm-ostree install python3-pip
+rpm-ostree install mscore-fonts
+# rpm-ostree install python3-pip
 rpm-ostree install gparted
-# rpm-ostree install grub-customizer
 rpm-ostree install gnome-terminal-nautilus
 rpm-ostree install meson
 rpm-ostree install libnsl 
+rpm-ostree install gnome-tweaks
 
 # Cisco AnyConnect VPN client alternative
 # rpm-ostree install network-manager-openconnect
