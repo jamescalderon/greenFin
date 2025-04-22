@@ -37,8 +37,8 @@ ARG SOURCE_IMAGE="bluefin"
 ARG SOURCE_SUFFIX="-dx-nvidia"
 
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
-# ARG SOURCE_TAG="latest"
-ARG SOURCE_TAG="stable"
+ARG SOURCE_TAG="latest"
+# ARG SOURCE_TAG="stable"
 
 ### 2. SOURCE IMAGE
 ## this is a standard Containerfile FROM using the build ARGs above to select the right upstream image
