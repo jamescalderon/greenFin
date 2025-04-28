@@ -53,7 +53,7 @@ EOF
 rpm-ostree install screen
 rpm-ostree install stow
 rpm-ostree install firefox
-rpm-ostree install chromium
+# rpm-ostree install chromium
 # rpm-ostree install thunderbird
 # rpm-ostree install nautilus-open-any-terminal
 rpm-ostree install jetbrains-mono-fonts
@@ -99,7 +99,7 @@ rpm-ostree install libglvnd-glx
 # rpm-ostree install wine-devel
 
 # Direct Repo Installs
-rpm-ostree install webapp-manager
+# rpm-ostree install webapp-manager
 rpm-ostree install code-insiders
 rpm-ostree install firefoxpwa
 
