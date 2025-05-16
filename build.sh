@@ -46,6 +46,12 @@ rpm-ostree install nvidia-container-toolkit
 }
 EOF
 
+# Install Mirth Connect
+# Mirth Connect is a cross-platform application that requires Java 8 or higher.
+curl -O https://s3.amazonaws.com/downloads.mirthcorp.com/connect-client-launcher/mirth-administrator-launcher-latest-unix.sh
+chmod +x mirth-administrator-launcher-latest-unix.sh
+bash mirth-administrator-launcher-latest-unix.sh
+
 
 # this installs a package from fedora repos
 
