@@ -46,6 +46,10 @@ rpm-ostree install nvidia-container-toolkit
 }
 EOF
 
+# Install Mirth Connect
+# Mirth Connect is a cross-platform application that requires Java 8 or higher.
+rpm-ostree install icedtea-web
+
 
 # this installs a package from fedora repos
 
