@@ -46,9 +46,11 @@ rpm-ostree install nvidia-container-toolkit
 }
 EOF
 
-# Install Mirth Connect
-# Mirth Connect is a cross-platform application that requires Java 8 or higher.
-rpm-ostree install icedtea-web
+#  Install anaconda
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
+rm Miniconda3-latest-Linux-x86_64.sh
+ 
 
 
 # this installs a package from fedora repos
