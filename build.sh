@@ -46,10 +46,22 @@ rpm-ostree install nvidia-container-toolkit
 }
 EOF
 
-#  Install anaconda
-curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
-bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
-rm Miniconda3-latest-Linux-x86_64.sh
+# #  Install anaconda
+# curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
+# bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3 
+# rm Miniconda3-latest-Linux-x86_64.sh
+
+# Download and install Miniconda
+wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
+bash /tmp/miniconda.sh -b -p /opt/conda 
+rm /tmp/miniconda.sh
+
+# # Add conda to the PATH
+# PATH=/opt/conda/bin:$PATH
+
+# #create conda environments with the necessary dependencies
+# RUN conda create -n python38 --yes python=3.8
+# RUN conda install -y -n python38 -c conda-forge boto3 azure-storage-blob pymongo pycurl dnspython gdal sqlite
  
 
 
