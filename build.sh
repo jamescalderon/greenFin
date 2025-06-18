@@ -68,6 +68,8 @@ rpm-ostree install gnome-terminal-nautilus
 rpm-ostree install meson
 rpm-ostree install libnsl 
 rpm-ostree install gnome-tweaks
+rpm-ostree install grsync
+
 
 # Cisco AnyConnect VPN client alternative
 # rpm-ostree install network-manager-openconnect
