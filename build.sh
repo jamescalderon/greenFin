@@ -70,6 +70,10 @@ rpm-ostree install libnsl
 rpm-ostree install gnome-tweaks
 rpm-ostree install grsync
 
+# QEMU/KVM
+rpm-ostree install spice-vdagent 
+rpm-ostree install qemu-guest-agent
+rpm-ostree install virtio-win
 
 # Cisco AnyConnect VPN client alternative
 # rpm-ostree install network-manager-openconnect
