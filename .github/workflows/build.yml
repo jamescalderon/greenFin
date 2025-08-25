@@ -35,7 +35,7 @@
           
         # Checkout push-to-registry action GitHub repository
         - name: Checkout Push to Registry action
-          uses: actions/checkout@v4
+          uses: actions/checkout@v5
   
         - name: Clean up Docker system
           run: |
