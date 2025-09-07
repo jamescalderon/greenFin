@@ -77,6 +77,7 @@ rpm-ostree install grsync
 rpm-ostree install spice-vdagent 
 rpm-ostree install qemu-guest-agent
 rpm-ostree install virtio-win
+rpm-ostree install virtiofsd
 
 # Cisco AnyConnect VPN client alternative
 # rpm-ostree install network-manager-openconnect
